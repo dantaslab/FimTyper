@@ -3,7 +3,7 @@ install:
 	cpanm Data::Dumper
 	cpanm Getopt::Long
 	cpanm File::Temp
-   cpanm Try::Tiny::Retry
+	cpanm Try::Tiny::Retry
 clean:
 	find ./ -name "*.DS_Store" -delete
 	find ./ -name "*.log" -delete
