@@ -163,6 +163,10 @@ https://bitbucket.org/genomicepidemiology/fimtyper/overview
 The documentation available as of the date of this release can be found at
 https://bitbucket.org/genomicepidemiology/fimtyper/overview.
 
+References
+=======
+
+1. Camacho C, Coulouris G, Avagyan V, Ma N, Papadopoulos J, Bealer K, Madden TL. BLAST+: architecture and applications. BMC Bioinformatics 2009; 10:421. 
 
 License
 =======
