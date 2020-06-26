@@ -163,6 +163,15 @@ https://bitbucket.org/genomicepidemiology/fimtyper/overview
 The documentation available as of the date of this release can be found at
 https://bitbucket.org/genomicepidemiology/fimtyper/overview.
 
+## Citation
+For publication of results, please cite:
+
+Development of a web tool for Escherichia coli subtyping based on fimh alleles.
+Roer L, Tchesnokova V, Allesoe R, Muradova M, Chattopadhyay S, Ahrenfeldt J, Thomsen MCF, Lund O, Hansen F, Hammerum AM, Sokurenko E, and Hasman H.
+J Clin Microbiol. 2017. 55(8): 2538-2543.
+View the abstract
+
+
 References
 =======
 
