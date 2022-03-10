@@ -39,6 +39,10 @@ Installing up the FimTyper database
 ```bash
 cd /path/to/fimtyper
 git clone https://bitbucket.org/genomicepidemiology/fimtyper_db.git
+
+# Validate the database is correct
+cd /path/to/fimtyper_db
+ python3 VALIDATE_DB fimtyper_db
 ```
 
 Installing dependencies:
