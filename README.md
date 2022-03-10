@@ -38,11 +38,7 @@ cd fimtyper
 Installing up the FimTyper database
 ```bash
 cd /path/to/fimtyper
-./INSTALL_DB database
-
-# Check all DB scripts works, and validate the database is correct
-./UPDATE_DB database
-./VALIDATE_DB database
+git clone https://bitbucket.org/genomicepidemiology/fimtyper_db.git
 ```
 
 Installing dependencies:
