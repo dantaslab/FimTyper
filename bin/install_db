@@ -11,7 +11,7 @@ fi
 
 # Check if the path is valid and unexisting
 if [ ! -d $path ]; then
-   git clone git@bitbucket.org:genomicepidemiology/fimtyper_db.git $path
+   git clone https://bitbucket.org/genomicepidemiology/fimtyper_db.git $path
 else
    echo "Error: path exists! Please provide a valid and unused path..."
 fi
@@ -24,6 +24,6 @@ if [[ $fix == "yes" ]] || [[ $fix == "y" ]]; then
    if [ ! -z "$gn" ]; then
       chgrp -R $gn $path
    fi
-   find $path \( -name .git \) -prune -printf '' -o -type d -print -exec chmod 775 {} \;
-   find $path \( -name .git \) -prune -printf '' -o -type f -print -exec chmod 664 {} \;
+   find $path -type d -name .git -prune -o -type d -exec chmod 775 {} +;
+   find $path -type d -name .git -prune -o -type f -exec chmod 664 {} +;
 fi
