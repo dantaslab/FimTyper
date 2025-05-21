@@ -34,11 +34,7 @@ if (not -f $InFile) {
 # Define database to use
 my $AB_indput = 'fimH';
 
-#If there are not given a path to the database or BLAST the program assume that the files are located in the curet directury
-if (not defined $BLAST) {
-  $BLASTN  = "blastn";
-  $MAKEDB  = "makeblastdb";
-}
+
 if (not defined $ABRES_DB) {
   $ABRES_DB = "fimtyper_db";
 }
@@ -1049,7 +1045,7 @@ sub get_blast_run {
    my $file = "blast_$org.fsa";
    #my ($fh, $file) = tempfile( DIR => '/tmp', UNLINK => 1);
    output_sequence(-file => ">$tmp_dir/$file", seqs => delete $args{-d}, -format => 'fasta');
-   die "Error! Could not build blast database" if (system("$MAKEDB -dbtype 'nucl' -input_type 'fasta' -in $tmp_dir/$file"));
+   die "Error! Could not build BLAST database" if (system("$MAKEDB -dbtype 'nucl' -input_type 'fasta' -in $tmp_dir/$file"));
    
    my $query_file = "$file.blastpipe";
 
@@ -1271,13 +1267,6 @@ sub commandline_parsing {
     while (scalar @ARGV) {
         if ($ARGV[0] =~ m/^-d$/) {
             $ABRES_DB = $ARGV[1];
-            shift @ARGV;
-            shift @ARGV;
-        }
-        elsif ($ARGV[0] =~ m/^-b$/) {
-            $BLAST = $ARGV[1];
-            $BLASTN = "$BLAST/bin/blastn";
-            $MAKEDB = "$BLAST/bin/makeblastdb";
             shift @ARGV;
             shift @ARGV;
         }
