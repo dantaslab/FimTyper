@@ -10,8 +10,8 @@ use Bio::SeqIO;
 use Bio::SearchIO;
 use Try::Tiny::Retry;
 
-use constant PROGRAM_NAME            => 'FimTyper-1.1.pl';
-use constant PROGRAM_NAME_LONG       => 'Findes FimH types for a sequence or genome';
+use constant PROGRAM_NAME            => 'FimTyper v1.1';
+use constant PROGRAM_NAME_LONG       => 'Finds FimH types for a sequence or genome';
 use constant VERSION                 => '1.1';
 
 my ($Help, $threshold, $min_length, $InFile, $dir, $BLAST, $BLASTN, $MAKEDB, $ABRES_DB);
@@ -34,13 +34,17 @@ if (not -f $InFile) {
 # Define database to use
 my $AB_indput = 'fimH';
 
-
+if (not defined $BLAST) {
+  $BLASTN  = "blastn";
+  $MAKEDB  = "makeblastdb";
+}
 if (not defined $ABRES_DB) {
   $ABRES_DB = "fimtyper_db";
 }
 if (not defined $dir) {
   $dir = ".";
 }
+
 
 my $procent_length = 100*$min_length;
 
