@@ -1045,8 +1045,7 @@ sub get_blast_run {
    my $file = "blast_$org.fsa";
    #my ($fh, $file) = tempfile( DIR => '/tmp', UNLINK => 1);
    output_sequence(-file => ">$tmp_dir/$file", seqs => delete $args{-d}, -format => 'fasta');
-   die "Error! Could not build BLAST database" if (system("$MAKEDB -dbtype 'nucl' -input_type 'fasta' -in $tmp_dir/$file"));
-   
+   die "Error! Could not build BLAST database" if system($MAKEDB, "-dbtype", "nucl", "-input_type", "fasta", "-in", "$tmp_dir/$file");
    my $query_file = "$file.blastpipe";
 
    #open QUERY, ">> $query_file" || die("Error! Could not perform blast run");
@@ -1057,7 +1056,7 @@ sub get_blast_run {
 
    my $cmd = join(" ", %args);
    my $file2 = "$tmp_dir/$file.blast_output";
-   system("$BLASTN -db $tmp_dir/$file -query $tmp_dir/$query_file -dust 'no' -out $file2");
+   system($BLASTN, "-db", "$tmp_dir/$file", "-query", "$tmp_dir/$query_file", "-dust", "no", "-out", $file2);
 
    my $report = new Bio::SearchIO( -file   => $file2,
                                    -format => "blast"
